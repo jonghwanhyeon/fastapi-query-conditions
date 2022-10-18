@@ -2,6 +2,7 @@
 
 ## Introduction
 FastAPI-Query-Conditions is a dependency that parses a query string into conditions using operators enclosed in square brackets.
+
 For example, if you send a request to `/orders?amount[gte]=1000&amount[lt]=2000`, you can use the query string as parsed conditions like this:
 ```json
 {"gte":1000,"lt":2000}
@@ -35,11 +36,11 @@ Then, if you send a request to `/items?amount[gte]=1000&amount[lt]=2000`, you ca
 
 Also, you can use various factory functions for your query parameter.
 ```python
+from datetime import datetime
 from typing import Dict
 
 from fastapi import Depends, FastAPI
 from fastapi_query_conditions import query_conditions
-from datetime import datetime
 
 app = FastAPI()
 
