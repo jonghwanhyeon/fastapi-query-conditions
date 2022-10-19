@@ -24,7 +24,7 @@ from fastapi_query_conditions import query_conditions
 app = FastAPI()
 
 @app.get("/items")
-def read_root(amount: Dict[str, int] = Depends(query_conditions(field='amount', factory=int))):
+def query_items(amount: Dict[str, int] = Depends(query_conditions(field='amount', factory=int))):
     print(amount)
     return amount
 ```
@@ -45,7 +45,7 @@ from fastapi_query_conditions import query_conditions
 app = FastAPI()
 
 @app.get("/orders")
-def read_root(time: Dict[str, int] = Depends(query_conditions(field='time', factory=datetime.fromisoformat))):
+def query_orders(time: Dict[str, int] = Depends(query_conditions(field='time', factory=datetime.fromisoformat))):
     print(time)
     return time
 ```
