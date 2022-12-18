@@ -5,13 +5,14 @@ from fastapi import HTTPException, Request
 
 
 def _parse_key_operator(key: str) -> Tuple[str, str]:
-    match = re.match(r'([^\[]+)(?:\[([^\]]+)\])?', key)
+    match = re.match(r"([^\[]+)(?:\[([^\]]+)\])?", key)
     key, operator = match.groups()
 
     if operator is None:
-        operator = 'eq'
+        operator = "eq"
 
     return key, operator
+
 
 def query_conditions(field: str, factory: Callable[[str], Any]):
     def inner(request: Request):
