@@ -3,7 +3,7 @@ from typing import Any, Callable, Tuple
 
 from fastapi import HTTPException, Request
 
-__version__ = "1.0.1"
+__version__ = "1.0.2"
 
 
 def _parse_key_operator(key: str) -> Tuple[str, str]:
